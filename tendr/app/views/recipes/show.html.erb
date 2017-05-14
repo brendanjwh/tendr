@@ -1,0 +1,14 @@
+<h1 class="name">
+  <%= @recipe.name %>
+</h1>
+
+<p class="date">
+  Submitted <%= time_ago_in_words(@recipe.created_at) %> ago.
+</p>
+
+<p class="body">
+  <%= @recipe.description %><br>
+  <%= @recipe.instructions %><br>
+  <%= @recipe.tags %><br>
+  <%= @recipe.ingredients %><br>
+</p>
