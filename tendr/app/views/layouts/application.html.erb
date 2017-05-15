@@ -6,9 +6,6 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
-  <body>
     <div id="logo">
       <div id="sidebar">
         <%= link_to root_path do %>
@@ -16,6 +13,22 @@
         <% end %>
       </div>
     </div>
+     <div class='full col'>
+      <nav>
+        <ul>
+          <li><%= link_to 'Home', root_path %></li>
+          <% if user_signed_in? %>
+            <li><%= link_to "Logout (#{current_user.email})", destroy_user_session_path, :method => :delete %></li>
+          <% else %>
+            <li><%= link_to 'Login', new_user_session_path  %></li>
+            <li><%= link_to 'Sign Up', new_user_registration_path  %></li>
+          <% end %>
+        </ul>
+      </nav>
+    </div>
+  </head>
+
+  <body>
     <%= yield %>
   </body>
 </html>
