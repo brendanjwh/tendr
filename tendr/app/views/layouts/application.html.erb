@@ -9,6 +9,13 @@
   </head>
 
   <body>
+    <div id="logo">
+      <div id="sidebar">
+        <%= link_to root_path do %>
+          <%= image_tag "logo.jpg" %>
+        <% end %>
+      </div>
+    </div>
     <%= yield %>
   </body>
 </html>
