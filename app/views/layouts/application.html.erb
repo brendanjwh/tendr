@@ -36,8 +36,21 @@
     </div>
 
   </head>
-
   <body>
+
+  <div id="main_content">
+    <div id="header">
+      <p>All cocktail recipes</p>
+
+      <div class="buttons">
+        <button class="button"><%= link_to "New Recipe", new_recipe_path %></button>
+      </div>
+    </div>
     <%= yield %>
+    <% flash.each do |name, msg| %>
+      <%= content_tag(:div, msg, class: "alert") %>
+    <% end %>
+  </div>
+
   </body>
 </html>

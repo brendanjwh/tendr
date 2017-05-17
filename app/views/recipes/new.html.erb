@@ -1,15 +1,17 @@
-<h1>So you think you got a good recipe, eh?!</h1>
+<div class="post_wrapper">
+  <h1>So you think you got a good recipe, eh?!</h1>
 
-<%= form_for :recipe, url: recipes_path do |f| %>
-  <%= f.label :name %><br>
-  <%= f.text_field :name %><br>
-  <%= f.label :ingredients %><br>
-  <%= f.text_field :ingredients %><br>
-  <%= f.label :description %><br>
-  <%= f.text_field :description %><br>
-  <%= f.label :instructions %><br>
-  <%= f.text_field :instructions %><br>
-  <%= f.label :tags %><br>
-  <%= f.text_field :tags %><br>
-  <%= f.submit %>
-<% end %>
+  <%= form_for :recipe, url: recipes_path do |f| %>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %><br>
+    <%= f.label :ingredients %><br>
+    <%= f.text_field :ingredients %><br>
+    <%= f.label :description %><br>
+    <%= f.text_field :description %><br>
+    <%= f.label :instructions %><br>
+    <%= f.text_field :instructions %><br>
+    <%= f.label :tags %><br>
+    <%= f.text_field :tags %><br>
+    <%= f.submit %>
+  <% end %>
+</div>
