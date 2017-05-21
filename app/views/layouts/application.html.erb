@@ -8,6 +8,8 @@
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>   
 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
@@ -16,57 +18,58 @@
 <body class="card-panel blue-grey">
 
 <!-- top row welcome and image -->
-  <div class="card-panel grey lighten-2 z-depth-1">
-    <div class="row valign-wrapper">
-      <div class="col s3 m4 l2">
-        <div class="circle">
+ 
+  <nav>
+ 
+        <div class="circle left">
           <%= link_to root_path do %>
-            <%= image_tag "logo.jpg", :class => "circle" %>
+            <%= image_tag "logo.jpg", :class => "z-depth-3 circle" %>
           <% end %>
-        </div>
+      
       </div>
       <div class="col s9">
         <h2>Welcome to Tendr</h2>
-      </div>
-    </div>
-  </div>
-
-<!-- side nav bar -->
-  <div class="row ">
-    <div class="col s2">
-       <ul class="card-panel grey">
-        <div class="container buttons">
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
           <% if user_signed_in? %>
             <li><button><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></li></button>
           <% else %>
             <li><%= link_to 'Login', new_user_session_path  %></li>
             <li><%= link_to 'Register Now', new_user_registration_path %></li>
           <% end %>
-        </div>
-      </ul>
-      <ul class="card-panel grey">
+          </ul>
+    </div>
+    </nav>
+  </div>
+
+<!-- side nav bar -->
+  <div class="row">
+    <div class="col s2">
+      <ul class="card-panel grey z-depth-3">
         <li>Social</li>
         <li><button><a href="/about">About</a></button>
-        <li><button><a href="mailto:brendanjwh@gmail.com">Email</a></li></button>
+        <li><button><a href="mailto:brendanjwh@gmail.com">Email</a><li></button>
         <li><button><a href="https://www.github.com/brendanjwh">Github</a></li></button>
       </ul>
     </div>
 
+
     <%= yield %>
 
-        <div class="col s1 m8 offset-m2 l6 offset-l3">
+        <div class="container col s1">
       <% if user_signed_in? %>
         <%= link_to new_recipe_path do %>
-        <%= image_tag "edit.jpg", :class => "circle responsive-image" %>
+        <%= image_tag "edit.jpg", :class => "circle responsive-image z-depth-3" %>
           <% end %>
           <% end %>
     </div>
+    </div>
+    <i class="medium material-icons">mode_edit</i>
 
 
     <% flash.each do |name, msg| %>
       <%= content_tag(:div, msg, class: "alert") %>
     <% end %>
-  </div>
+ 
  
 
 </body>
