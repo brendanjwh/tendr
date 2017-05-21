@@ -20,57 +20,44 @@
 <!-- top row welcome and image -->
  
   <nav>
- 
-        <div class="circle left">
-          <%= link_to root_path do %>
-            <%= image_tag "logo.jpg", :class => "z-depth-3 circle" %>
-          <% end %>
-      
-      </div>
-      <div class="col s9">
-        <h2>Welcome to Tendr</h2>
-        <ul id="nav-mobile" class="left hide-on-med-and-down">
-          <% if user_signed_in? %>
-            <li><button><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></li></button>
-          <% else %>
-            <li><%= link_to 'Login', new_user_session_path  %></li>
-            <li><%= link_to 'Register Now', new_user_registration_path %></li>
-          <% end %>
-          </ul>
+    <div class="circle left">
+      <%= link_to root_path do %>
+        <%= image_tag "logo.jpg", :class => "z-depth-3 circle" %>
+      <% end %>
     </div>
-    </nav>
-  </div>
-
-<!-- side nav bar -->
-  <div class="row">
-    <div class="col s2">
-      <ul class="card-panel grey z-depth-3">
-        <li>Social</li>
-        <li><button><a href="/about">About</a></button>
-        <li><button><a href="mailto:brendanjwh@gmail.com">Email</a><li></button>
-        <li><button><a href="https://www.github.com/brendanjwh">Github</a></li></button>
+    <div class="col s9">
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <% if user_signed_in? %>
+          <li><button><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></li></button>
+        <% else %>
+          <li><%= link_to 'Login', new_user_session_path  %></li>
+          <li><%= link_to 'Register Now', new_user_registration_path %></li>
+        <% end %>
+        </li>
       </ul>
+      <ul id="dropdown1" class="dropdown-content">
+        <li><a href="/about">About</a></li>
+        <li><a href="mailto:brendanjwh@gmail.com">Email</a></li>
+        <li class="divider"></li>
+        <li><a href="https://www.github.com/brendanjwh">Github</a></li>
+      </ul>
+      <a class="dropdown-button right" href="#!" data-activates="dropdown1">Social<i class="material-icons right">arrow_drop_down</i></a>
     </div>
+  </nav>
 
+  <%= yield %>
 
-    <%= yield %>
-
-        <div class="container col s1">
-      <% if user_signed_in? %>
-        <%= link_to new_recipe_path do %>
+  <div class="container col s1">
+    <% if user_signed_in? %>
+      <%= link_to new_recipe_path do %>
         <%= image_tag "edit.jpg", :class => "circle responsive-image z-depth-3" %>
-          <% end %>
-          <% end %>
-    </div>
-    </div>
-    <i class="medium material-icons">mode_edit</i>
-
+      <% end %>
+    <% end %>
+  </div>
 
     <% flash.each do |name, msg| %>
       <%= content_tag(:div, msg, class: "alert") %>
     <% end %>
- 
- 
 
 </body>
 </html>
