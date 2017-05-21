@@ -1,7 +1,7 @@
-<div class="row">
+<div class="col s9">
 <% @recipes.each do |recipe| %>
-  <div class="col s4">
-    <h4 class="name"><%= link_to recipe.name, recipe %></h4>
+  <div class="container card-panel light-blue darken-4 hoverable">
+    <h5 class="name"><%= link_to recipe.name, recipe %></h5>
     <p class="date"><%= recipe.created_at.strftime("%B %d, %Y") %></p>
   </div>
 <% end %>

@@ -13,56 +13,60 @@
 </head>
   <!-- ================================================== -->
 
-<body class="container card-panel blue-grey">
+<body class="card-panel blue-grey">
 
 <!-- top row welcome and image -->
-  <div class="row blue-grey lighten-1">
-    <div class="col s3 m4 l2">
-      <%= link_to root_path do %>
-        <%= image_tag "logo.jpg" %>
-      <% end %>
-    </div>
-    <div class="col s9">
-      <h2>Welcome to Tendr</h2>
+  <div class="card-panel grey lighten-2 z-depth-1">
+    <div class="row valign-wrapper">
+      <div class="col s3 m4 l2">
+        <div class="circle">
+          <%= link_to root_path do %>
+            <%= image_tag "logo.jpg", :class => "circle" %>
+          <% end %>
+        </div>
+      </div>
+      <div class="col s9">
+        <h2>Welcome to Tendr</h2>
+      </div>
     </div>
   </div>
 
 <!-- side nav bar -->
-  <div class="row blue-grey lighten-3">
+  <div class="row ">
     <div class="col s2">
-      <ul class="container card-panel grey">
-        <% if user_signed_in? %>
-          <li><%= link_to "Logout (#{current_user.email})", destroy_user_session_path, :method => :delete %></li>
-        <% else %>
-          <li><%= link_to 'Login', new_user_session_path  %></li>
-        <% end %>
-        <% if user_signed_in? %>
-          <li><%= link_to 'Create Recipe', new_recipe_path %></li>
-        <% else %>
-          <li><%= link_to 'Register Now', new_user_registration_path %></li>
-        <% end %>
+       <ul class="card-panel grey">
+        <div class="container buttons">
+          <% if user_signed_in? %>
+            <li><button><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></li></button>
+          <% else %>
+            <li><%= link_to 'Login', new_user_session_path  %></li>
+            <li><%= link_to 'Register Now', new_user_registration_path %></li>
+          <% end %>
+        </div>
       </ul>
-      <ul class="container card-panel grey">
+      <ul class="card-panel grey">
         <li>Social</li>
-        <li><a href="/about">About</a>
-        <li><a href="mailto:brendanjwh@gmail.com">Email</a></li>
-        <li><a href="https://www.github.com/brendanjwh">Github</a></li>
+        <li><button><a href="/about">About</a></button>
+        <li><button><a href="mailto:brendanjwh@gmail.com">Email</a></li></button>
+        <li><button><a href="https://www.github.com/brendanjwh">Github</a></li></button>
       </ul>
     </div>
-  </div>
 
-  <!-- new recipe button & link -->
-  <div class="buttons">
-    <button class="button"><%= link_to "New Recipe", new_recipe_path %></button>
-  </div>
-
-  <div class="col s10">
     <%= yield %>
-  </div>
 
-  <% flash.each do |name, msg| %>
-    <%= content_tag(:div, msg, class: "alert") %>
-  <% end %>
+        <div class="col s1 m8 offset-m2 l6 offset-l3">
+      <% if user_signed_in? %>
+        <%= link_to new_recipe_path do %>
+        <%= image_tag "edit.jpg", :class => "circle responsive-image" %>
+          <% end %>
+          <% end %>
+    </div>
+
+
+    <% flash.each do |name, msg| %>
+      <%= content_tag(:div, msg, class: "alert") %>
+    <% end %>
+  </div>
  
 
 </body>
