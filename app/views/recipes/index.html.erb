@@ -1,8 +1,9 @@
-<div class="col s9">
-<% @recipes.each do |recipe| %>
-  <div class="container card-panel light-blue darken-4 hoverable z-depth-3">
-    <h5 class="name"><%= link_to recipe.name, recipe %></h5>
-    <p class="date"><%= recipe.created_at.strftime("%B %d, %Y") %></p>
-  </div>
-<% end %>
+<div class="container center col s12">
+  <% @recipes.each do |recipe| %>
+    <div class="card-panel light-blue darken-4 hoverable z-depth-3 opacity">
+      <h5 class="name"><%= link_to recipe.name, recipe %></h5>
+      <p class="date"><%= recipe.created_at.strftime("%B %d, %Y") %></p>
+      <div class="divider"></div>
+    </div>
+  <% end %>
 </div>
