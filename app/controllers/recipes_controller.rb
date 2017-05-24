@@ -1,6 +1,10 @@
 class RecipesController < ApplicationController
   def index
-    @recipes = Recipe.all.order('created_at DESC')
+    if params[:tag]
+      @recipes = Recipe.tagged_with(params[:tag])
+    else
+      @recipes = Recipe.all.order('created_at DESC')
+    end
   end
 
   def new
