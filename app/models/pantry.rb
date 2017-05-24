@@ -1,4 +1,4 @@
 class Pantry < ApplicationRecord
-  belongs_to :bartender, class_name :User
+  has_one :user
   has_many :ingredients
 end
