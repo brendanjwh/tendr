@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :ingredients
 
   get '/about', to: 'pages#about'
+  get 'tags/:tag', to: 'recipes#index', as: :tag
 
   root "recipes#index"
 end
