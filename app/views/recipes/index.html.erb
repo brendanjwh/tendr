@@ -3,6 +3,11 @@
     <div class="card-panel light-blue darken-4 hoverable z-depth-3 opacity">
       <h5 class="name"><%= link_to recipe.name, recipe %></h5>
       <p class="date"><%= recipe.created_at.strftime("%B %d, %Y") %></p>
+      <div id="tag_cloud">
+        <% tag_cloud recipe.tag_counts, %w[s m l] do |tag, css_class| %>
+          <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+        <% end %>
+      </div>
       <div class="divider"></div>
     </div>
   <% end %>

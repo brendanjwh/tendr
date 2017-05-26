@@ -12,8 +12,9 @@
   <p class="body">
     Description: <%= @recipe.description %><br>
     Instructions: <%= @recipe.instructions %><br>
-    Tags: <%= @recipe.tags %><br>
-    Ingredients: <%= @recipe.ingredients %><br>
+    Tags: <% @recipe.tag_list.each do |tag| %>
+      <%= tag %>
+      <% end %>
   </p>
   <div id="comments">
     <h2><%= @recipe.comments.count %> Comments</h2>
