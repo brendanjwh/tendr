@@ -1,20 +1,23 @@
 <div class="recipe_content">
-  <h1 class="name">
+  <h2 class="name">
     <%= @recipe.name %>
-  </h1>
+  </h2>
 
   <p class="date">
-    Submitted <%= time_ago_in_words(@recipe.created_at) %> ago.
-    | <%= link_to 'Edit', edit_recipe_path(@recipe) %>
-    | <%= link_to 'Delete', recipe_path(@recipe), method: :delete, data: { confirm: 'Are you sure?' } %>
+    Submitted <%= time_ago_in_words(@recipe.created_at) %> ago. <br><br>
+    <% if (user_signed_in? && (current_user.id == @recipe.user_id)) %>
+      <%= link_to "Edit", edit_recipe_path(@recipe), class: "btn btn-sm btn-default" %>
+    <% end %>
+   
+     <%= link_to 'Delete', recipe_path(@recipe), class: "btn btn-sm btn-default", method: :delete, data: { confirm: 'Are you sure?' } %>
   </p>
 
   <p class="body">
     Description: <%= @recipe.description %><br>
     Instructions: <%= @recipe.instructions %><br>
-    Tags:
-      <% tag_cloud @recipe.tag_counts, %w[s m l] do |tag, css_class| %>
-        | <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+    <strong>Tags:</strong>
+      <% tag_cloud @recipe.tag_counts, %w[s m l] do |tag| %>
+         <%= link_to tag.name, tag_path(tag.name), class: "btn btn-sm btn-default" %>
       <% end %>
   </p>
   <div id="comments">
