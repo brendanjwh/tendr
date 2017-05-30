@@ -1,15 +1,28 @@
 <div class="container center col s12">
   <% @recipes.each do |recipe| %>
     <div class="card-panel light-blue darken-4 hoverable z-depth-3 opacity">
-      <h5 class="name"><%= link_to recipe.name, recipe %></h5>
+      <div class="fixed-action-btn horizontal click-to-toggle">
+        <a class="btn-floating btn-large red">
+          <i class="material-icons">menu</i>
+        </a>
+        <ul>
+          <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
+          <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
+          <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
+          <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+        </ul>
+      </div>
+        <%= link_to recipe.name, recipe %></h5>
       <p class="date"><%= recipe.created_at.strftime("%B %d, %Y") %></p>
       <div id="tags">
       Tags:
-        <% tag_cloud recipe.tag_counts, %w[s m l] do |tag, css_class| %>
-          | <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+        <% tag_cloud recipe.tag_counts, %w[s m l] do |tag| %>
+          <%= link_to tag.name, tag_path(tag.name), class: "btn btn-sm btn-default" %>
         <% end %>
       </div>
-      <div class="divider"></div>
     </div>
+  <div class="divider"></div>
   <% end %>
+<div class="divider"></div>
 </div>
+
