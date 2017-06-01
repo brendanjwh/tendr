@@ -1,0 +1,25 @@
+.ass {
+  background-color: #ad801f !important;
+}
+
+.background-img { 
+  background-image: url(../images/bartender.png); 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.burgundy {
+    background-color: #545241 !important;
+}
+
+.dark-violet {
+    background-color: #524042 !important;
+}
+
+.radical-blue {
+    background-color: #404752 !important;
+}
