@@ -1,6 +1,6 @@
 <div class="center container">
   <% @recipes.each do |recipe| %>
-    <div class="center card-panel light-blue darken-4 hoverable z-depth-3 opacity">
+    <div class="center card-panel hoverable z-depth-3 radical-blue">
       <%= link_to recipe.name, recipe %>
       <ul class="collapsible" data-collapsible="expandable">
         <li>
@@ -8,16 +8,13 @@
           <div class="collapsible-body"><span><%= recipe.description %></span></div>
         </li>
         <li>
-          <div class="collapsible-header"><i class="material-icons">place</i>Tags</div>
-          <div class="collapsible-body"><span><% tag_cloud recipe.tag_counts, %w[s m l] do |tag| %>
-          <%= link_to tag.name, tag_path(tag.name), class: "btn btn-sm btn-default" %>
-        <% end %></span></div>
-        </li>
-        <li>
           <div class="collapsible-header"><i class="material-icons">whatshot</i>Instructions</div>
           <div class="collapsible-body"><span><%= recipe.instructions %></span></div>
         </li>
       </ul>
+          <div class="tags"><span><% tag_cloud recipe.tag_counts, %w[s m l] do |tag| %>
+          <%= link_to tag.name, tag_path(tag.name), class: "btn btn-sm btn-default" %>
+        <% end %></span></div>
     </div>
   <div class="divider"></div>
   <% end %>
