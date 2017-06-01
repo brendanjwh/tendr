@@ -21,26 +21,10 @@ ActiveRecord::Schema.define(version: 20170530202022) do
     t.index ["recipe_id"], name: "index_comments_on_recipe_id"
   end
 
-  create_table "ingredients", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "recipe_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "pantries", force: :cascade do |t|
-    t.integer  "ingredient_id", null: false
-    t.integer  "user_id",       null: false
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-  end
-
   create_table "recipes", force: :cascade do |t|
     t.string   "name"
-    t.string   "ingredients"
     t.string   "description"
     t.text     "instructions"
-    t.string   "tags"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "user_id"
