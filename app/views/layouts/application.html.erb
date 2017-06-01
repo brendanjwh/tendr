@@ -16,11 +16,9 @@
 </head>
   <!-- ================================================== -->
 
-<body class="blue-grey">
-
-
+<body class="grey lighten-1">
 <!-- top row welcome and image -->
-  <nav>
+  <nav class="blue">
     <div class="circle left">
       <%= link_to root_path do %>
         <%= image_tag "logo.png", :class => "z-depth-3 circle" %>
@@ -52,6 +50,8 @@
       <a class="dropdown-button right" href="#!" data-activates="dropdown1">Social<i class="material-icons right">arrow_drop_down</i></a>
     </div>
   </nav>
+
+  <%= image_tag("bartender.png") %>
   <div class="row">
     <div class="col m12 right">
       <%= yield %>
