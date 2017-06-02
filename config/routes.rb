@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resources :comments
   end
   resources :ingredients
+  resources :users
 
   get '/about', to: 'pages#about'
   get 'tags/:tag', to: 'recipes#index', as: :tag

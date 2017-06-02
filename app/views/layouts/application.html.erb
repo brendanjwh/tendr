@@ -14,9 +14,11 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
+
   <!-- ================================================== -->
 
 <body class="background-img burgundy">
+
 <!-- top row welcome and image -->
   <nav class="dark-violet">
     <div class="circle left">
@@ -50,6 +52,7 @@
       <a class="dropdown-button right" href="#!" data-activates="dropdown1">Social<i class="material-icons right">arrow_drop_down</i></a>
     </div>
   </nav>
+
  <!--  <div class="img-bg">
     <%= image_tag("bartender.png") %>
   </div> -->
@@ -62,6 +65,7 @@
   <% flash.each do |name, msg| %>
     <%= content_tag(:div, msg, class: "alert") %>
   <% end %>
+  
 <!--Import jQuery before materialize.js-->
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="js/materialize.min.js"></script>

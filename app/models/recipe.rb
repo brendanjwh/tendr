@@ -1,6 +1,7 @@
 class Recipe < ApplicationRecord
   has_many :comments, dependent: :destroy
   belongs_to :user
+  has_many :fans, through: :favorites, source: :users
 
   acts_as_taggable 
   acts_as_taggable_on :spirits, :citrus, :simple_syrup, :liqueur
