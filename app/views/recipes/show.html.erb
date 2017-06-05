@@ -1,4 +1,4 @@
-<div class="recipe_content collapsible popout" data-collapsible="accordion">
+<div class="recipe_content collapsible popout center card-panel hoverable z-depth-3 radical-blue" data-collapsible="accordion">
   <h2 class="name">
     <%= @recipe.name %>
   </h2>
@@ -6,7 +6,7 @@
   <p class="date">
     Submitted <%= time_ago_in_words(@recipe.created_at) %> ago. <br><br>
     <% if (user_signed_in? && (current_user.id == @recipe.user_id)) %>
-        , class: "btn btn-sm btn-default" %>
+      <%= link_to 'Edit', edit_recipe_path(@recipe), class: "btn btn-sm btn-default", method: :update %>
       <%= link_to 'Delete', recipe_path(@recipe), class: "btn btn-sm btn-default", method: :delete, data: { confirm: 'Are you sure?' } %>
     <% end %>
   </p>
