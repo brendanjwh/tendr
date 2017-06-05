@@ -1,9 +1,12 @@
-<div class="container center card-panel hoverable z-depth-3 radical-blue">
-  <h3>Hello, <%= @user.email %></h3>
-</div>
+<h3 class="container left white-text">Hello, <%= @user.email %></h3>
+
+<span class="container left white-text"><%= @tags %></span>
+
+
+
+<h4 class="container left white-text">Your Recipes</h4> 
 
 <div class="left container col s4">
-  <h3 class="white">Your Recipes</h3> 
   <% @user.recipes.each do |recipe| %>
     <div class="center card-panel hoverable z-depth-3 radical-blue">
       <a class="waves-effect waves-light">
@@ -28,4 +31,10 @@
   <div class="divider"></div>
   <% end %>
 <div class="divider"></div>
+</div>
+
+<div class="right container col s4">
+  <%= render 'form' %>
+</div>
+    </div>
 </div>
