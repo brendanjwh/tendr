@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :comments
   has_many :recipes
-  has_many :favorited_drinks, through: :favorites, source: :recipes
+  has_many :favorites
+  #has_many :favorited_drinks, :through => :favorites, :source => :recipes
   # has_many :recipes, through: :pantry, foreign_key: 'recipe_id'
 end

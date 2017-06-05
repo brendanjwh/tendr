@@ -1,11 +1,15 @@
 <div class="center container">
   <% @recipes.each do |recipe| %>
     <div class="center card-panel hoverable z-depth-3 radical-blue">
+      <a class="waves-effect waves-light">
+        <i class="material-icons yellow center">grade</i>
+        
+        </a>    
       <%= link_to recipe.name, recipe %>
       <ul class="collapsible" data-collapsible="expandable">
         <li>
           <div class="collapsible-header"><i class="material-icons">filter_drama</i>Description</div>
-          <div class="collapsible-body"><span><%= recipe.description %></span></div>
+          <div class="collapsible-body"><span class="font-white"><%= recipe.description %></span></div>
         </li>
         <li>
           <div class="collapsible-header"><i class="material-icons">whatshot</i>Instructions</div>
