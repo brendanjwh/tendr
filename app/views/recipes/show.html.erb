@@ -1,4 +1,5 @@
-<div class="recipe_content collapsible popout center card-panel hoverable z-depth-3 radical-blue" data-collapsible="accordion">
+<div class="container card-panel hoverable z-depth-3 radical-blue">
+<div class="center container postwrapper blue-grey darken-2 hoverable z-depth-3">
   <h2 class="name">
     <%= @recipe.name %>
   </h2>
@@ -18,12 +19,13 @@
       <% tag_cloud @recipe.tag_counts, %w[s m l] do |tag| %>
          <%= link_to tag.name, tag_path(tag.name), class: "btn btn-sm btn-default" %>
       <% end %>
-  </p>
-  <div id="comments">
+  </p><br>
+  </div>
+  <br><div id="comments" class="center container postwrapper blue-grey darken-2 hoverable z-depth-3">
     <h2><%= @recipe.comments.count %> Comments</h2>
     <%= render @recipe.comments %>
 
-    <h3>Add a comment</h3>
+    <h4>Add a comment</h4>
     <%= render "comments/form" %> 
   </div>
 </div>

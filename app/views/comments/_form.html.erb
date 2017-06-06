@@ -1,3 +1,4 @@
+<div class="center container postwrapper blue-grey darken-2 hoverable z-depth-3">
 <%= form_for [@recipe, @recipe.comments.build] do |f| %>
   <p>
     <%= f.label :username %><br>
@@ -13,3 +14,5 @@
   <%= f.submit %>
   </p>
 <% end %>
+</div>
+<br>
