@@ -1,24 +1,27 @@
-<div class="container radical-blue hoverable z-depth-3">
-  <%= form_for @recipe do |f| %>
-    <% if @recipe.errors.any? %>
-      <div id="errors">
-        <h2><%= pluralize(@recipe.errors.count, "error") %> prevented this recipe from saving</h2>
-        <ul>
-          <% @recipe.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-    <%= f.label :name %><br>
-    <%= f.text_field :name %><br> 
-    <%= f.label :description %><br>
-    <%= f.text_field :description %><br>
-    <%= f.label :instructions %><br>
-    <%= f.text_field :instructions %><br>
-    <%= f.label :tag_list, "Tags (separated by  commas)" %><br>
-    <%= f.text_field :tag_list %>
-    <%= f.hidden_field :user_id , :value => current_user.id %>
-    <%= f.submit %>
-  <% end %>
+<div class="row">
+  <div class="col s6 center container blue-grey darken-2 hoverable z-depth-3">
+    <%= form_for @recipe do |f| %>
+      <% if @recipe.errors.any? %>
+        <div id="errors">
+          <h2><%= pluralize(@recipe.errors.count, "error") %> prevented this recipe from saving</h2>
+          <ul class="col s6">
+            <% @recipe.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <%= f.label :name %><br>
+      <%= f.text_field :name %><br> 
+      <%= f.label :description %><br>
+      <%= f.text_field :description %><br>
+      <%= f.label :instructions %><br>
+      <%= f.text_field :instructions %><br>
+      <%= f.label :tag_list, "Tags (separated by  commas)" %><br>
+      <%= f.text_field :tag_list %>
+      <%= f.hidden_field :user_id , :value => current_user.id %>
+      <%= f.submit %>
+    <% end %><br>
+  </div>
+<br><br>
 </div>

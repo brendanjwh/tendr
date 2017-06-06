@@ -17,19 +17,19 @@
 
   <!-- ================================================== -->
 
-<body class="background-img burgundy">
+<body class="background-img black">
 
 <!-- top row welcome and image -->
   <nav class="dark-violet">
     <div class="circle left">
       <%= link_to root_path do %>
-        <%= image_tag "logo.png", :class => "z-depth-3 circle" %>
+        <%= image_tag "logo.png", :class => "z-depth-1 circle" %>
       <% end %>
     </div>
       <ul id="nav-mobile" class="left hide-on-med-and-down">
         <% if user_signed_in? %>
-          <li><button><%= link_to 'Profile', user_path(current_user) %></button></li>
-          <li><button><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></li></button>
+          <li><button class="btn btn-sm btn-default"><%= link_to 'Profile', user_path(current_user) %></button></li>
+          <li><button class="btn btn-sm btn-default"><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></li></button>
         <% else %>
           <li><%= link_to 'Login', new_user_session_path  %></li>
           <li><%= link_to 'Register Now', new_user_registration_path %></li>
@@ -50,7 +50,7 @@
         <li class="divider"></li>
         <li><a href="https://www.github.com/brendanjwh">Github</a></li>
       </ul>
-      <a class="dropdown-button right" href="#!" data-activates="dropdown1">Social<i class="material-icons right">arrow_drop_down</i></a>
+      <a class="dropdown-button right btn btn-sm btn-default" href="#!" data-activates="dropdown1">Social<i class="black z-depth -3 material-icons right">arrow_drop_down</i></a>
     </div>
   </nav>
 
