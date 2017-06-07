@@ -13,8 +13,8 @@
   </p>
 
   <p class="big">
-    <span class="blue-text"><Description: </span><%= @recipe.description %><br>
-    <span class="blue-text">Instructions: </span><%= @recipe.instructions %><br>
+    <span class="blue-text">Description: </span><span class="white-text"><%= @recipe.description %></span><br>
+    <span class="blue-text">Instructions: </span><span class="white-text"><%= @recipe.instructions %></span><br>
     <strong class="blue-text">Tags:</strong>
       <% tag_cloud @recipe.tag_counts, %w[s m l] do |tag| %>
          <%= link_to tag.name, tag_path(tag.name), class: "btn btn-sm btn-default" %>
