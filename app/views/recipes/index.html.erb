@@ -1,4 +1,4 @@
-<div class="center container">
+<div class="center container col s8 offset-s2">
   <% @recipes.each do |recipe| %>
     <div class="center card-panel hovera`le z-depth-3 radical-blue">
       <a class="waves-effect waves-light"><i class="material-icons yellow center">grade</i>
@@ -11,11 +11,15 @@
         <li>
           <div class="collapsible-header"><i class="material-icons">whatshot</i>Instructions</div>
           <div class="collapsible-body"><span><%= recipe.instructions %></span></div>
-        </li>
+        </li>  
       </ul>
-          <div class="tags"><span><% tag_cloud recipe.tag_counts, %w[s m l] do |tag| %>
-          <%= link_to tag.name, tag_path(tag.name), class: "btn btn-sm btn-default" %>
-        <% end %></span></div>
+      <div class="tags">
+        <p class="big"><span><% tag_cloud recipe.tag_counts, %w[s m l] do |tag| %>
+        <%= link_to tag.name, tag_path(tag.name), class: "btn btn-sm btn-default" %>
+              &nbsp;
+          <% end %></span>
+        </p>
+      </div>
     </div>
   <div class="divider"></div>
   <% end %>

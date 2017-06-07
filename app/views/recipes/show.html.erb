@@ -1,6 +1,6 @@
-<div class="container card-panel hoverable z-depth-3 radical-blue">
+<div class="container card-panel hoverable z-depth-3 radical-blue col s8 offset-s2">
 <div class="center container postwrapper blue-grey darken-2 hoverable z-depth-3">
-  <h2 class="name">
+  <h2 class="name blue-text">
     <%= @recipe.name %>
   </h2>
 
@@ -12,12 +12,13 @@
     <% end %>
   </p>
 
-  <p class="body">
-    Description: <%= @recipe.description %><br>
-    Instructions: <%= @recipe.instructions %><br>
-    <strong>Tags:</strong>
+  <p class="big">
+    <span class="blue-text"><Description: </span><%= @recipe.description %><br>
+    <span class="blue-text">Instructions: </span><%= @recipe.instructions %><br>
+    <strong class="blue-text">Tags:</strong>
       <% tag_cloud @recipe.tag_counts, %w[s m l] do |tag| %>
          <%= link_to tag.name, tag_path(tag.name), class: "btn btn-sm btn-default" %>
+            &nbsp;
       <% end %>
   </p><br>
   </div>

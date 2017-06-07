@@ -23,3 +23,7 @@
 .radical-blue {
     background-color: #404752 !important;
 }
+
+p.big {
+    line-height: 45px;
+}
