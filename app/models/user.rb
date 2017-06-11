@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :comments
   has_many :recipes
   has_many :favorites
+  has_many :favorite_recipes, through: :favorites, source: :favorited, source_type: 'Recipe'
   has_one :pantry
 
   acts_as_taggable 
