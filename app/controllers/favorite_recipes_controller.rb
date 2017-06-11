@@ -10,7 +10,8 @@ class FavoriteRecipesController < ApplicationController
   end
   
   def destroy
-    Favorite.where(favorited_id: @recipe.id, user_id: current_user.id).first.destroy
+    @favorite = Favorite.find_by(favorited_id: @recipe.id, user_id: current_user.id)
+    p @favorite
     redirect_to @recipe, notice: 'recipe is no longer in favorites'
   end
   

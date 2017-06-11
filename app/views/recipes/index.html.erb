@@ -1,13 +1,15 @@
 <div class="center container col s8 offset-s2">
   <% @recipes.each do |recipe| %>
     <div class="center card-panel hoverable z-depth-3 radical-blue">
-      <!-- <a class="waves-effect waves-light"><i class="material-icons yellow center">
-        grade -->
       <% if user_signed_in? %>
+      <!-- <a class="waves-effect waves-light">
+        grade -->
         <%- unless current_user.favorite_recipes.exists?(id: recipe.id) -%>
-          <%= link_to 'Add to favorites', user_favorite_recipes_path(recipe_id: recipe.id, user_id: current_user.id), method: :post %>
+        <i class="material-icons yellow center">
+          <%= link_to 'Add to favorites', user_favorite_recipes_path(user_id: current_user.id, recipe_id: recipe.id), method: :post %>
+          </i>
         <%- else -%>
-          <%= link_to 'Remove from favorites', user_favorite_recipes_path(recipe), method: :delete %>
+          <%= link_to 'Remove from favorites', user_favorite_recipe_path(@favorited.id, user_id: current_user.id), method: :delete %>
         <%- end -%>
       <% end %>
       <%= link_to recipe.name, recipe %>
