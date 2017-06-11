@@ -1,7 +1,13 @@
 <div class="center container col s8 offset-s2">
   <% @recipes.each do |recipe| %>
     <div class="center card-panel hoverable z-depth-3 radical-blue">
-      <a class="waves-effect waves-light"><i class="material-icons yellow center">grade</i>
+      <a class="waves-effect waves-light"><i class="material-icons yellow center">
+        grade
+        <% if @favorited %>
+          <%= link_to "unfavorite", create_favorite_path(@joke), method: :put %>
+        <% else %>
+          <%= link_to "favorite", destroy_favorite_path(@joke), method: :put %>
+        <% end %></i>
       <%= link_to recipe.name, recipe %>
       <ul class="collapsible" data-collapsible="expandable">
         <li>
