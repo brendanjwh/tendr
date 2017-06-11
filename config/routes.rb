@@ -4,7 +4,9 @@ Rails.application.routes.draw do
     resources :comments
   end
   resources :ingredients
-  resources :users
+  resources :users do 
+    resources :favorite_recipes, only: [:create, :destroy, :show]
+  end
   resources :favorites, only: [:create, :destroy, :show]
 
   get '/about', to: 'pages#about'
