@@ -16,8 +16,8 @@ class FavoriteRecipesController < ApplicationController
   end
   
   private
-  
+    
   def set_recipe
-    @recipe = Recipe.find(params[:recipe_id] || current_user.favorite_recipes(id: recipe.id) )
+    @recipe = Recipe.find(params[:recipe_id] || params[:id])
   end
 end
