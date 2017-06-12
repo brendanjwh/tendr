@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   resources :ingredients
   resources :users do 
     resources :favorite_recipes, only: [:create, :destroy, :show]
+    resources :favorites, only: [:create, :destroy, :show]
   end
-  resources :favorites, only: [:create, :destroy, :show]
 
   get '/about', to: 'pages#about'
   get 'tags/:tag', to: 'recipes#index', as: :tag
