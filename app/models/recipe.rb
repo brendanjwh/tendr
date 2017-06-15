@@ -1,5 +1,7 @@
 class Recipe < ApplicationRecord
   has_many :comments, dependent: :destroy
+  has_many :favorite_recipes
+  has_many :favorited, :through => :favorite_recipes, :source => :user
   belongs_to :user
 
 
