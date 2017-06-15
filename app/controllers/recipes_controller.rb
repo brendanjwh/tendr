@@ -5,7 +5,6 @@ class RecipesController < ApplicationController
     else
       @recipes = Recipe.all.order('created_at DESC')
     end
-      @favorited = Favorite.find_by(user_id: current_user)
   end
 
   def new
