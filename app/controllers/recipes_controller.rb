@@ -31,7 +31,7 @@ class RecipesController < ApplicationController
   def update
     @recipe = Recipe.find(params[:id])
     if @recipe.update(params[:recipe].permit(:name, :description, :instructions, :tag_list))
-      redirect_to @recipe
+      redirect_back(@recipe)
     else
       render 'edit'
     end
@@ -41,6 +41,26 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
     @recipe.destroy
     redirect_to root_path
+  end
+
+  # Add and remove favorite recipes
+  # for current_user
+  def favorite
+    @recipe = Recipe.find(params[:id])
+    type = params[:type]
+    if type == "favorite"
+      current_user.favorites << @recipe
+      redirect_to :back, notice: 'You favorited #{@recipe.name}'
+
+    elsif type == "unfavorite"
+      #@recipe = Recipe.find(params[:id])
+      current_user.favorites.delete(@recipe)
+      redirect_to :back, notice: 'Unfavorited #{@recipe.name}'
+
+    else
+      # Type missing, nothing happens
+      redirect_to :back, notice: 'Nothing happened.'
+    end
   end
 
   private

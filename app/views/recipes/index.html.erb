@@ -2,15 +2,16 @@
   <% @recipes.each do |recipe| %>
     <div class="center card-panel hoverable z-depth-3 radical-blue">
       <% if user_signed_in? %>
-      <!-- <a class="waves-effect waves-light">
-        grade -->
-        <!-- <i class="material-icons yellow center"> -->
-          <%= link_to 'Add to favorites', user_favorite_recipes_path(user_id: current_user.id, favorited_id: recipe.id), method: :post %>
-          <!-- </i> -->
-        <%- else -%>
-          <% @favorite = Favorite.find_by(user_id: current_user.id, favorited_id: recipe.id) %>
-          <%= link_to 'Remove from favorites', user_favorite_recipe_path(id: @favorite.id, user_id: @favorite.user_id), method: :delete %>
-        <%- end -%>
+        <% if current_user %>
+          <% @recipe = recipe %>
+          <% if current_user.favorite_recipes.any? {|favorited| favorited[:recipe_id] == @recipe.id } %>
+           <%= link_to "unfavorite", favorite_recipe_path(@recipe, type: "unfavorite"), method: :put %>
+          <% else %>
+            <%= link_to "favorite", favorite_recipe_path(@recipe, type: "favorite"), method: :put %>
+          <% end %>
+        <% end %>
+      <% end %>
+         
 
       <%= link_to recipe.name, recipe %>
       <ul class="collapsible" data-collapsible="expandable">

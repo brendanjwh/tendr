@@ -12,6 +12,4 @@ class User < ApplicationRecord
   acts_as_taggable 
   acts_as_taggable_on :spirits, :citrus, :simple_syrup, :liqueur
 
-  #has_many :favorited_drinks, :through => :favorites, :source => :recipes
-  # has_many :recipes, through: :pantry, foreign_key: 'recipe_id'
 end
