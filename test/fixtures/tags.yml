@@ -2,10 +2,8 @@
 
 one:
   name: MyString
-  user_id: 1
-  recipe_id: 1
+  taggings_count: 1
 
 two:
-  name: MyString
-  user_id: 1
-  recipe_id: 1
+  name: MyString2
+  taggings_count: 1
