@@ -3,8 +3,13 @@ class CommentsController < ApplicationController
   def create
     @recipe = Recipe.find(params[:recipe_id])
     @comment = @recipe.comments.create(params[:comment].permit(:username, :body))
-
-    redirect_to recipe_path(@recipe)
+    @comment.user_id = current_user.id
+    @comment.recipe_id = @recipe.id
+    if @comment.save
+      redirect_to recipe_path(@recipe)
+    else
+      flash.now[:danger] = "error"
+    end
   end
 
   def destroy
