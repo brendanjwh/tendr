@@ -5,7 +5,8 @@ FactoryGirl.define do
     first_name "Brendan"
     last_name "White"
     username "aggro_control"
-    email "eggrollcontrol@gmail.com"
+    email "blaha@gmail.com"
+    password "pissass"
     encrypted_password "asdasd"
     sign_in_count 1
 

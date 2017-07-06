@@ -10,9 +10,10 @@ describe RecipesController do
 
   describe 'GET #show' do 
     it "renders the #show view" do 
-      recipe = create(:recipe) 
-      get :show, id: Factory(:recipe)
-      assigns(:recipe).should render_template :show
+      user = create(:user)
+      recipe = create(:recipe)
+      get :show, params: {id: recipe.id}
+      expect(assigns(:recipe)).to render_template :show
     end
   end
 end

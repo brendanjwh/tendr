@@ -2,7 +2,7 @@ class Recipe < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :favorite_recipes
   has_many :favorited_by, :through => :favorite_recipes, :source => :user
-  belongs_to :user
+  belongs_to :user, optional: true
 
 
   acts_as_taggable 
